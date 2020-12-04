@@ -1,0 +1,85 @@
+<br>
+<br>
+
+
+<!-- testing for CURD -->
+
+
+<div class="container-fluid nh ">
+    <h4>{{pageTitle}} </h4>
+    <br>
+     <form [formGroup]="addproduct" (ngSubmit)="onSubmit(addproduct.value)" >
+        <div class="row">
+          <div class="form-group col-md-6">
+            <label for="Name">Name </label>
+            <input type="text"  placeholder="Product Name" class="form-control" formControlName="Name">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="Brand">Brand </label>
+            <input type="text" placeholder="Product Brand" class="form-control" formControlName="Brand" >
+          </div>
+        </div>
+    
+          <div class="row">
+            <div class="form-group col-md-6">
+            <label for="Ratings">Ratings</label>
+            <input type="text"  placeholder="Ratings between 1 to 5 " class="form-control" formControlName="Ratings">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="OfferPrice">Offer Price </label>
+            <input type="text" placeholder="Offer Price of product" class="form-control" formControlName="OfferPrice" >
+           </div>
+              </div>
+
+              <div class="row">
+                <!-- <div class="form-group col-md-6">
+                  <label for="Categories">Categories</label>
+                </div> -->
+                <div class="form-group col-md-6">
+                  <label for="Image">Image Upload</label>
+                  <div class="row">
+                  <div id="fileSelector">
+                    <input type="file" 
+                    name="image" multiple (change)="selectImage($event)"/>
+                  </div>
+                </div>
+                </div>
+              </div>
+
+    
+              <div class="row">
+                <div class="form-group col-md-6">
+                 <label for="IsAvailable">Availability</label><br>
+            <label class="radiol-inline">
+              <input id="Availability" type="radio" value="In Stock" formControlName="IsAvailable">
+              In Stock
+            </label>
+            <label class="radiol-inline">
+              <input id="Availability" type="radio" value="Not Available" formControlName="IsAvailable">
+              Not Available
+            </label>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="TotalPrice">Total Price </label>
+                <input type="text" placeholder="Total Price of product" class="form-control" formControlName="TotalPrice" >
+               </div>
+                  </div>
+    
+                  <div class="form-group col-md-12">
+                    <label for="Description">Description</label>
+                    <input type="text"  placeholder="Type somthing more about the products" class="form-control" formControlName="Description">
+                   </div>
+                
+                  <button type="submit" class="btn heading3"  
+              style="color: white; padding-top: 5px; 
+                padding-bottom: 10px; padding-left: 40px; padding-right: 40px; "> 
+              Add Product</button>
+              
+              <button class="btn heading3" style="float: right;" (click)="removeProduct()">Delete</button>
+
+
+            </form>
+          </div>    
+  
+  <!-- testing for CURD end here-->
+  

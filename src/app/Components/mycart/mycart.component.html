@@ -1,0 +1,182 @@
+<ngb-accordion #acc="ngbAccordion" [closeOthers]="true" activeIds="static-1">
+    <ngb-panel id="static-1" title="Item Details">
+      <ng-template ngbPanelContent>
+
+          <div id="collapseExample" [ngbCollapse]="false">
+              <div class="card">
+                <div class="card-body">
+                 <h2 style="color:darkorange; text-align:center;">Cart Items<span style="float: right;color: black">
+                    Total value is: {{allTotal}}</span>
+                   </h2>
+                   <button class="btn btn-outline-success" style="float: right;" (click)="acc.toggle('static-2')">CheckOut</button>
+
+                    
+                    <table class="table table-bordered table-responsive table-hover">
+                      <thead class="thead-light">
+                      <tr>
+                        <th>Image</th>
+                        <th>Name</th>
+                        <th>Brand</th>
+                        <th>Availability</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Add/Remove</th>
+                        <th>Total For Item</th>
+                      </tr>
+                      </thead>
+                      <tr *ngFor="let data of productAddedTocart;let q = index">
+                        <td><img src="{{ data.image }}" alt="Product image here"  class="img-fluid" style="align-items:center!important;" /></td>
+                        <td class="text-center">{{data.Name}}</td>
+                        <td>{{data.Brand}}</td>
+                        <td>{{data.IsAvailable}}</td>
+                        <td>{{data.TotalPrice}}</td>
+                        <td>{{data.Quantity}}</td>
+                        <td>
+                          <div class="form-inline">
+                          <button type="button" style="border-radius: 25px;" (click)="onAddQuantity(data)" class="btn btn-success">+</button> 
+                          <input type="text" style="border-radius: 25px;" [ngModel] ="data.Quantity" (ngModelChange) ="data.Quantity=$event" class="form-control form-inline" id="count">
+                          <button type="button"  style="border-radius: 25px;"(click)="onRemoveQuantity(data)" class="btn btn-danger">-</button>
+                          </div>
+                        </td>
+                        <td>{{data.TotalPrice * data.Quantity}}</td>
+                      </tr>
+                    </table>
+                </div>
+              </div>
+            </div>
+      </ng-template>
+    </ngb-panel>
+
+
+
+
+    <ngb-panel id="static-2">
+      <ng-template ngbPanelTitle>
+        <span> <b>Order</b> Details</span>
+      </ng-template>
+      <ng-template ngbPanelContent>
+          <form [formGroup]="deliveryForm">
+              <div class="form-group">
+                <br>
+                <div class="col-md-12">
+                  <h5 style="margin-left: 20px;">Name :</h5>  <input  style="border-radius: 25px;" placeholder=" Customer Name" type="text" formControlName="UserName" class="form-control"   >
+                </div>
+                <br>
+                <div class="col-md-12">
+                    <h5 style="margin-left: 20px;">Delivery Address :</h5> 
+                    <textarea id="textarea"  style="border-radius: 25px;" name="textarea" placeholder="Please type an valid Address with pincode" formControlName="DeliveryAddress" class="form-control"  rows="3" cols="15"></textarea>
+                  </div>
+                  <br>
+                  <div class="col-md-12">
+                      <h5 style="margin-left: 20px;">Phone :</h5>  <input  style="border-radius: 25px;" type="text" placeholder="Eg.:123456789" formControlName="Phone" class="form-control"   >
+                    </div>
+                    <br>
+                    <div class="col-md-12">
+                        <h5 style="margin-left: 20px;">Email :</h5>  <input  style="border-radius: 25px;" type="text" placeholder="example@gmail.com" formControlName="Email" class="form-control"   >
+                      </div>
+                      <br>
+                      <div class="col-md-12">
+                          <h5 style="margin-left: 20px;">Special Message/ Instructions :</h5>  <input type="text"  style="border-radius: 25px;" placeholder="Happy Birthday " formControlName="Message" class="form-control"   >
+                        </div>
+                        <br>
+                        <div class="row">
+                        <div class="col-md-12">
+                          <h5 style="margin-left: 30px;">Payment Options :</h5><br>
+                     <label class="radiol-inline" >
+                       <input id="Po" type="radio" style="margin-left: 25px;" disabled="disabled" value="EMI" formControlName="Cod">
+                       EMI 
+                     </label>
+                     <label class="radiol-inline">
+                       <input id="po" type="radio" style="margin-left: 25px;" disabled="disabled" value="Nb" formControlName="Cod">
+                       Net Banking
+                     </label>
+                     <label class="radiol-inline">
+                      <input id="po" type="radio" style="margin-left: 25px;" disabled="disabled" value="Cd" formControlName="Cod">
+                      Creditcard or Debitcard
+                    </label>
+                    <label class="radiol-inline">
+                      <input id="po" type="radio" style="margin-left: 25px;"  value="Cash On Delivery" formControlName="Cod">
+                      Cash on Delivery
+                    </label>
+                       </div>
+                      </div>
+
+                        <div class="col-md-12">
+                            <h5 style="margin-left: 20px;">Total Amount To Pay : &nbsp;{{allTotal}} </h5>
+                            
+                            <!-- <input type="text" formControlName="Amount" class="form-control"  > -->
+                          </div>
+              </div>
+              <button type="button" style="margin-left: 39%;" [disabled]="!deliveryForm.valid" class="btn btn-outline-success" (click)="acc.toggle('static-3')"><b>Proceed to pay</b></button>
+            </form>
+      </ng-template>
+    </ngb-panel>
+
+
+    <ngb-panel id="static-3" title="Confirm Your Order" >
+      <ng-template ngbPanelContent>
+       <table>
+         <tr class="col-md-12">
+            <td class="col-md-6"><h2>Item Details</h2></td>
+           <td class="col-md-6"><h2>Delivery Details</h2></td>          
+         </tr>
+         <tr class="col-md-12">
+           <td class="col-md-6">
+             <!-- -- Item details Table -->
+             <table class="table table-bordered  table-hover">
+                <thead class="thead-light">
+                <tr>
+                  <th>Name</th>
+                  <th>Price</th>
+                  <th>Quantity</th>
+                  <th>Total For Item</th>
+                </tr>
+                </thead>
+                <tr *ngFor="let data of productAddedTocart;let q = index">
+                  <td class="text-center">{{data.Name}}</td>
+                  <td>{{data.TotalPrice}}</td>
+                  <td>{{data.Quantity}}</td>
+                  <td>{{data.TotalPrice * data.Quantity}}</td>
+                </tr>
+              </table>
+
+           </td>
+           <td class="col-md-6">
+              <!-- --Delivery Table -->
+              <table class="table table-bordered  table-hover">
+                  <thead class="thead-light">
+                  <tr>
+                    <th>Name</th>
+                    <th>Delivery Address</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Message</th>
+                    <th>Payment type</th>
+                  </tr>
+                  </thead>
+                  <tr>
+                    <td>{{deliveryForm.value.UserName}}</td>
+                    <td>{{deliveryForm.value.DeliveryAddress}}</td>
+                    <td>{{deliveryForm.value.Phone}}</td>
+                    <td>{{deliveryForm.value.Email}}</td>
+                    <td>{{deliveryForm.value.Message}}</td>
+                    <td>{{deliveryForm.value.Cod}}</td>
+                  </tr>
+                </table>
+                       </td>
+         </tr>
+         <tr>
+           <td  class="text-center" >
+              <button type="button" routerLink="/confirmorder" class="btn btn-outline-success" (click)="ConfirmOrder()"><b>Confirm Order</b></button>
+           </td>
+         </tr>
+       </table>
+       <p *ngFor="let alert of alerts">
+        <ngb-alert style="width: 758px;" [type]="alert.type" (close)="closeAlert(alert)">{{ alert.message }}</ngb-alert>
+      </p>
+          
+         
+      </ng-template>
+    </ngb-panel>
+  </ngb-accordion>
+

@@ -1,0 +1,51 @@
+
+<br>
+<br>
+<div class="container-fluid nha ">
+
+    <div class="col-md-12">
+        <!-- RECENT PURCHASES -->
+        <div class="panel">
+            <!-- <div class="panel-heading">
+                <h3 class="panel-title">Recent Purchases</h3>
+            </div> -->
+            <h4> User Registeration </h4>
+            <div class="panel-body no-padding">
+                <table class="table table-striped">
+                  
+                  <thead>
+                        <tr>
+                            <th>User Id</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Email Id</th>
+                            <!-- <th>Operations</th> -->
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let data of viewuser">
+                            <td>{{data._id}}</td>
+                            <td>{{data.Firstname}}</td>
+                            <td>{{data.Lastname}}</td>
+                            <td>{{data.userlogin.UserEmail}}</td>
+                            <!-- <td><button class="btn btn-danger" (click)="deleteUser()">Delete</button></td> -->
+                        </tr>
+                        
+                        
+                    </tbody>
+                </table>
+            </div>
+            <div class="panel-footer">
+                <!-- <div class="row">
+                    <div class="col-md-12"><a href="#" class="btn navb" 
+                        style="background-color:#FF5722; border-radius: 25px; padding: 5px 55px; color:white">
+                        View All Users</a></div>
+                </div> -->
+            </div>
+        </div>
+        <!-- END RECENT PURCHASES -->
+     </div>
+</div>
+<br>
+<br>
+<br>

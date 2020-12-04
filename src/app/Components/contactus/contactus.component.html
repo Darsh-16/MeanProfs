@@ -1,0 +1,53 @@
+<br>
+
+<!-- tittle heading -->
+<h3 class="tittle-w3l">Contact Us 
+	<span class="heading-style">
+		<i></i>
+		<i></i>
+		<i></i>
+	</span>
+</h3>
+<!-- //tittle heading -->
+
+
+
+<br>
+<div class="container-fluid nh ">
+    <h4> Contact Us </h4>
+    <br>
+    <form [formGroup]="contactdata" (ngSubmit)="onSubmit(contactdata.value)">
+       <div class="row">
+            <div class="form-group col-md-6" >
+                <label for="Name"> First Name </label>
+                <input type="text" class="form-control"  formControlName="Firstname" placeholder=" Your First Name">
+              </div>
+              <div class="form-group col-md-6" >
+                <label for="Name">Last Name </label>
+                <input type="text" class="form-control" formControlName="Lastname" placeholder=" Your Last Name">
+              </div>
+        </div>
+
+      
+            <div class="form-group col-md-12">
+                <label for="E-mail"> E-mail </label>
+                <input type="email" class="form-control" formControlName="Email" placeholder="E-mail">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="number">Phone Number </label>
+                <input type="text" class="form-control" formControlName="Phone" placeholder=" Your Phone Number">
+              </div>
+              
+              <div class="form-group col-md-12">
+                <label for="subject">Subject</label>
+        <textarea name="subject"  class="form-control" formControlName="Message" placeholder="Write something.." style="height:170px"></textarea>
+     </div>
+    <div>
+     <button type="submit" class="btn navb" >Submit</button>
+    </div>
+
+    <br>
+    <br>
+    
+    </form>
+</div>

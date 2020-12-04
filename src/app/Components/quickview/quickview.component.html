@@ -1,0 +1,40 @@
+<br> 
+     <!-- <div class="container single-product" *ngFor="let data of model"> -->
+        <div class="container single-product" *ngIf="quickview" >
+        <div class="row">
+            <div class="col-md-5 imma text-center" >
+                <img src="{{ quickview.image }}" alt="Product image here"  class="img-fluid" style="align-items: center;" />
+            </div>
+            <br>
+            <div class="col-md-7 ">
+                <br>
+                <div class="product-new-top">New</div>
+                
+                <h2><b>{{quickview.Name}}</b></h2>
+            
+                <div class="container">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                  </div>
+                  <br>
+                  <div>
+                      <h1 class="price">Price : ₹{{ quickview.TotalPrice }}</h1> 
+                      <p><b>Avaliability :</b> {{ quickview.IsAvailable }}</p>
+                      <p><b>Brand :</b> {{ quickview.Brand }}</p>
+                      <p><b>Offers :</b> {{ quickview.OfferPrice }}</p>
+                      <!-- <button type="submit" class="btn btn-primary" (click)="OnAddCart(data)"> Buy Now </button> -->
+                      <p><b>Product Description :</b><br>{{ quickview.Description }}</p>
+                      <!-- <button type="button" class="addtocart"
+                      (click)="OnAddCart(data)" > 
+                              ADD TO CART
+                          </button>  -->
+                  </div>
+    
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>

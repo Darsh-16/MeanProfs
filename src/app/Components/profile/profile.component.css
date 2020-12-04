@@ -1,0 +1,13 @@
+.userprofile{
+   
+        box-shadow: 0px 0px 15px 0px #D6D6D6;
+        padding: 30px 20px;
+      
+
+}
+
+.picture{
+    border: 2px solid brown;
+    margin: 10px;
+    height: 200px;
+}

@@ -1,0 +1,77 @@
+<br>
+<!-- Banner -->
+<div class=" container-fluid  row" >
+<div class="container-fluid ld col-md-1"></div>
+<div class="container-fluid fd col-md-10 ">
+	<div id="Myslideshow" class="carousel slide" data-ride="carousel">
+		<div class="carousel-inner">
+			<div class="carousel-item active">
+				<img src="../../../assets/images/banner3.jpg"  class="d-block w-100" height="350px">
+			</div>
+			<div class="carousel-item">
+				<img src="../../../assets/images/banner4.jpg"  class="d-block  w-100"  height="350px">
+			</div>
+			<div class="carousel-item">
+				<img src="../../../assets/images/banner5.jpg"  class="d-block w-100" height="350px" >
+			</div>
+			<div class="carousel-item">
+				<img src="../../../assets/images/banner6.jpg"  class="d-block w-100" height="350px" >
+			</div>
+			<div class="carousel-item">
+				<img src="../../../assets/images/banner7.jpg"  class="d-block w-100" height="350px" >
+			</div>
+		</div>
+
+		<a href="#Myslideshow" class="carousel-control-prev" role="button" data-slide="prev" >
+			<span class="carousel-control-prev-icon"></span>
+		</a>
+		<a href="#Myslideshow" class="carousel-control-next" role="button" data-slide="next" >
+			<span class="carousel-control-next-icon"></span>
+		</a>
+		
+	</div> 
+</div>
+<div class="container-fluid rd col-md-1"></div>
+</div>
+
+<!--/ Banner -->
+<br>
+
+
+<!-- tittle heading -->
+<!-- <h3 class="tittle-w3l" >Our Top Products 
+	<span class="heading-style">
+		<i></i>
+		<i></i>
+		<i></i>
+	</span>
+</h3> -->
+<!-- //tittle heading -->
+
+<app-grocery></app-grocery>
+
+
+
+
+<a href="#" id="toTop" style="display: block;"><span id="toTopHover" style="opacity: 0;"></span>To Top</a>
+
+
+
+	<!-- smooth-scrolling-of-move-up -->
+	<script>
+		$(document).ready(function () {
+		
+			var defaults = {
+				containerID: 'toTop', // fading element id
+				containerHoverID: 'toTopHover', // fading element hover id
+				scrollSpeed:50000,
+				easingType: 'linear' 
+			};
+		
+			$().UItoTop({
+				easingType: 'easeOutQuart'
+			});
+
+		});
+	</script>
+	<!-- //smooth-scrolling-of-move-up -->
